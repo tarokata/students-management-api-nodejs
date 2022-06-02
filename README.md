@@ -20,19 +20,19 @@ npm install
 ```
 ## Features
 ### Get one students info 
-Send GET request to the URL: http://api/students/{studentID}
+Send GET request to the URL: http://students/{studentID}
 
 ### Get all students info
-Send a GET request to the URL: http://api/students
+Send a GET request to the URL: http://students
 
 ### Get one students attendance status
-Send a GET request to the URL: http://api/students-attendance/{studentID}
+Send a GET request to the URL: http://students-attendance/{studentID}
 
 ### Get all students attendance status
-Send a GET request to the URL: http://api/students-attendance
+Send a GET request to the URL: http://students-attendance
 
 ### Update one student attendance status
-Send a POST request to the URL: http://api/students-attendance/{studentID}
+Send a POST request to the URL: http://students-attendance/{studentID}
 
 ### Update many students attendance status
-Send a POST request to the URL: http://api/students-attendance/{studentID*}
+Send a POST request to the URL: http://students-attendance/{studentID*}
