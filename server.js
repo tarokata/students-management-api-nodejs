@@ -51,8 +51,6 @@ const init = async () => {
     routes: {
       cors: {
         origin: ['http://127.0.0.1:5501'],
-        header: ['Accept', 'Content-Type'],
-        additionalHeaders: ['X-Requested-With'],
         credentials: true
       }
     }
@@ -61,10 +59,6 @@ const init = async () => {
   await server.register(require('@hapi/basic'));
 
   server.auth.strategy('simple', 'basic', { validate });
-
-  server.route({
-
-  });
 
   server.route({
     method: 'GET', 
