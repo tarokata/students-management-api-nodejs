@@ -50,7 +50,10 @@ const init = async () => {
     port: port,
     routes: {
       cors: {
-        origin: ['http://127.0.0.1:5501'],
+        origin: ['*'],
+        headers: ['Authorization'],
+        exposedHeaders: ['Accept'],
+        additionalExposedHeaders: ['Accept'],
         credentials: true
       }
     }
@@ -61,26 +64,34 @@ const init = async () => {
   server.auth.strategy('simple', 'basic', { validate });
 
   server.route({
+    method: 'GET',
+    path: '/',
+    handler: (request, h) => {
+      return 'Hello, welcome to my world!!!'
+    }
+  });
+
+  server.route({
     method: 'GET', 
-    path: '/api/students-attendance/{date}',
+    path: '/students-attendance/{date}',
     handler: getAllStudentsAttendanceStatusHandler
   });
 
   server.route({
     method: 'GET', 
-    path: '/api/students-attendance/{date}/{studentID}',
+    path: '/students-attendance/{date}/{studentID}',
     handler: getOneStudentAttendanceStatusHandler
   });
 
   server.route({
     method: 'GET',
-    path: '/api/students-attendance/{date}/{studentID*}',
+    path: '/students-attendance/{date}/{studentID*}',
     handler: getManyStudentAttendanceStatusHandler
   });
 
   server.route({
     method: 'POST',
-    path: '/api/students-attendance', 
+    path: '/students-attendance', 
     options: {
       auth: 'simple'
     },
@@ -89,7 +100,7 @@ const init = async () => {
 
   server.route({
     method: 'DELETE',
-    path: '/api/students-attendance/{date}/{studentID}',
+    path: '/students-attendance/{date}/{studentID}',
     handler: (request, h) => {
       return 'delete students-attendance-status'
     }
@@ -97,25 +108,25 @@ const init = async () => {
 
   server.route({
     method: 'GET',
-    path: '/api/students',
+    path: '/students',
     handler: getAllStudentsHandler
   });
 
   server.route({
     method: 'GET',
-    path: '/api/students/{studentID}',
+    path: '/students/{studentID}',
     handler: getOneStudentHandler
   });
 
   server.route({
     method: 'GET',
-    path: '/api/students/{studentID*}',
+    path: '/students/{studentID*}',
     handler: getManyStudentsHandler
   });
 
   server.route({
     method: 'POST',
-    path: '/api/students',
+    path: '/students',
     options: {
       auth: 'simple'
     },
@@ -124,7 +135,7 @@ const init = async () => {
 
   server.route({
     method: 'DELETE',
-    path: '/api/students/{studentID}',
+    path: '/students/{studentID}',
     options: {
       auth: 'simple'
     },
@@ -133,7 +144,7 @@ const init = async () => {
 
   server.route({
     method: 'DELETE',
-    path: '/api/students/{studentID*}',
+    path: '/students/{studentID*}',
     options: {
       auth: 'simple'
     },
