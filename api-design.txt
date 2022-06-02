@@ -1,0 +1,54 @@
+db-scheme
+[
+	"2022-05-31T15:38:37.450Z": {
+		"2051222": {
+			"fullname": "Nguyen Van A",
+			"attendance": true/false,
+			"marked_time": ""
+		},
+		"2056722": {
+			"fullname": "Nguyen Van B",
+			"attendance": true/false,
+			"marked_time": ""
+		},
+    "2052849": {
+			"fullname": "Nguyen Van C",
+			"attendance": true/false,
+			"marked_time": ""
+		}
+	}
+]
+
+
+endpoint-design
+GET 
+  api/students/
+    
+  api/students/{studentID}
+
+  api/students/{studentID*}
+
+PUT
+  students
+    // One student
+    {
+      "studentID": 20521364,
+      "fullname": "John Wick"
+    }
+    // Many students
+    [{ 
+      "studentID": 2069482,
+      "fullname": "dam vinh hung"
+    }, {
+        "studentID": 2057821,
+      "fullname": "my tam"
+    }, {
+        "studentID": 2063442,
+      "fullname": "duc phuc"
+    }]
+
+  students/attendance
+
+
+  students/attendance/studentID
+
